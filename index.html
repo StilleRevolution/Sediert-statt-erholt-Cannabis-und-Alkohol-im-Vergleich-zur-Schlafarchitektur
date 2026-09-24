@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sediert statt erholt — Cannabis und Alkohol im Vergleich zur Schlafarchitektur</title>
+<meta name="description" content="Claim-für-Claim-Evidenzsynthese: Cannabis und Alkohol im Vergleich zur Schlafarchitektur — REM, Schlafspindeln, Melatonin, Glymphatik, Entzug. Mit Zweitgutachten-Änderungsprotokoll und Epistemischem Exoskelett.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sediert statt erholt — Cannabis und Alkohol im Vergleich zur Schlafarchitektur">
+<meta property="og:description" content="Eine claim-basierte Evidenzsynthese, die beobachteten Befund von Mechanismus-Hypothese und Extrapolation trennt — keine formale quantitative Meta-Analyse.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%99%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          void: '#060714',
+          nebula: '#10152b',
+          gold: '#d9a35c',
+          parchment: '#f4ead9',
+          tagschaetzung: '#e8b878',
+          tagableitung: '#e4915b',
+          tagmodell: '#6fd6c9',
+          tagprojektion: '#b79cf0',
+          tagumstritten: '#f1887e',
+          tagwertung: '#e893c4',
+          tagunbest: '#9aa2ba'
+        },
+        fontFamily: {
+          display: ['Fraunces', 'serif'],
+          body: ['"Atkinson Hyperlegible"', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  :root{
+    --safe-t: env(safe-area-inset-top, 0px);
+    --safe-b: env(safe-area-inset-bottom, 0px);
+  }
+  html{ scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+  body{
+    background-color: #060714;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(217,163,92,0.10), transparent),
+      radial-gradient(ellipse 60% 40% at 85% 15%, rgba(111,214,201,0.06), transparent);
+    color: #f4ead9;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+  }
+  h1,h2,h3,h4,.font-display{ font-family: 'Fraunces', serif; }
+  .mono{ font-family: 'JetBrains Mono', monospace; }
+
+  #particle-canvas{ position: fixed; inset: 0; z-index: -10; display:block; }
+
+  .skip-link{
+    position:absolute; left:1rem; top:-4rem; z-index:100;
+    background:#d9a35c; color:#060714; padding:.6rem 1rem; border-radius:.5rem;
+    font-weight:600; transition: top .2s ease;
+  }
+  .skip-link:focus{ top:1rem; }
+
+  :focus-visible{ outline: 2px solid #d9a35c; outline-offset: 3px; border-radius: 2px; }
+
+  .glass{
+    background: rgba(16,21,43,0.58);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(244,234,217,0.12);
+  }
+
+  /* --- Evidenz-Tags --- */
+  .tag{
+    display:inline-flex; align-items:center; gap:.35em;
+    font-family:'JetBrains Mono', monospace; font-size:.72rem; font-weight:600;
+    letter-spacing:.01em; line-height:1; white-space:nowrap;
+    padding:.32em .62em; border-radius:999px; border:1px solid currentColor;
+    background: color-mix(in srgb, currentColor 12%, transparent);
+  }
+  .tag::before{ content:''; width:.4em; height:.4em; border-radius:999px; background:currentColor; flex:none; }
+  .tag--fakt{ color:#d9a35c; }
+  .tag--schaetzung{ color:#e8b878; }
+  .tag--ableitung{ color:#e4915b; }
+  .tag--modell{ color:#6fd6c9; }
+  .tag--projektion{ color:#b79cf0; }
+  .tag--umstritten{ color:#f1887e; }
+  .tag--wertung{ color:#e893c4; }
+  .tag--unbestaetigt{ color:#9aa2ba; }
+  .tag-note{ font-size:.85em; color: rgba(244,234,217,0.6); font-style:italic; }
+
+  .verdict{
+    display:inline-flex; align-items:center; gap:.4em;
+    font-size:.72rem; font-weight:600; padding:.3em .65em; border-radius:.4em;
+    border:1px solid currentColor; white-space:nowrap;
+  }
+  .verdict--accepted{ color:#6fd6c9; }
+  .verdict--partial{ color:#e4915b; }
+  .verdict--rejected{ color:#9aa2ba; }
+
+  /* --- Callouts --- */
+  .callout{
+    border-left: 3px solid; border-radius: .5rem;
+    background: rgba(244,234,217,0.04);
+    padding: .9rem 1.1rem;
+  }
+  .callout--chain{ border-color:#6fd6c9; }
+  .callout--stop{ border-color:#f1887e; }
+  .callout--hint{ border-color:#d9a35c; }
+  .callout p{ margin:0; }
+  .callout .callout-label{
+    display:block; font-family:'JetBrains Mono', monospace; font-size:.7rem;
+    letter-spacing:.04em; margin-bottom:.35rem; opacity:.85;
+  }
+
+  table{ border-collapse: collapse; width:100%; }
+  th,td{ text-align:left; padding:.65rem .8rem; vertical-align:top; border-bottom:1px solid rgba(244,234,217,0.1); }
+  th{ font-family:'JetBrains Mono', monospace; font-size:.72rem; letter-spacing:.03em; color:#d9a35c; font-weight:600; }
+  .table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:.6rem; border:1px solid rgba(244,234,217,0.1); }
+  .table-wrap table{ min-width: 640px; }
+
+  section.card{ scroll-margin-top: 5.5rem; }
+
+  .navlink{ position:relative; white-space:nowrap; }
+  .navlink[aria-current="true"]{ color:#d9a35c; }
+  .navlink[aria-current="true"]::after{
+    content:''; position:absolute; left:0; right:0; bottom:-.5rem; height:2px; background:#d9a35c; border-radius:2px;
+  }
+
+  dialog{
+    background: transparent; border:none; padding:0; max-width: 42rem; width:92vw; max-height:85vh;
+  }
+  dialog::backdrop{ background: rgba(6,7,20,0.72); backdrop-filter: blur(3px); }
+  .dialog-panel{
+    background: rgba(16,21,43,0.97);
+    border: 1px solid rgba(217,163,92,0.25);
+    border-radius: 1rem;
+    padding: 1.75rem;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  #autoscroll-toggle{
+    position: fixed; right: 1.1rem; bottom: calc(1.1rem + var(--safe-b));
+    z-index: 40;
+  }
+
+  #a11y-status{
+    position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body class="antialiased">
+<a href="#content" class="skip-link">Zum Inhalt springen</a>
+<canvas id="particle-canvas" aria-hidden="true"></canvas>
+<div id="a11y-status" role="status" aria-live="polite"></div>
+
+<header id="top" class="relative px-5 pt-16 pb-10 md:pt-24 md:pb-14">
+  <div class="max-w-3xl mx-auto text-center">
+    <p class="mono text-xs tracking-wide text-tagmodell/90 mb-4">Projekt Sternenstaub · Wissenschaftliche Evidenzsynthese</p>
+    <h1 class="font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-parchment">
+      Sediert statt erholt
+      <span class="block text-gold italic mt-1">Cannabis und Alkohol im Vergleich zur Schlafarchitektur</span>
+    </h1>
+    <p class="mt-5 text-sm text-parchment/60">
+      Whitepaper · Version 2 · Stand September 2026<br>
+      Adressaten: Interessierte Laien mit wissenschaftlichem Anspruch
+    </p>
+    <p class="mt-6 text-base md:text-lg text-parchment/85 leading-relaxed text-left sm:text-center">
+      Cannabis und Alkohol gelten beide als Einschlafhilfen und beide als Störfaktoren der Schlafarchitektur.
+      Dieses Whitepaper prüft die zugrunde liegende Evidenz claim-für-claim, trennt beobachteten Befund von
+      Mechanismus-Hypothese und Extrapolation, und stellt beide Substanzen entlang identischer Endpunkte
+      gegenüber (REM-Schlaf, Schlafspindeln, Melatonin, glymphatisches System, Entzug). Ergebnis: Für mehrere
+      Endpunkte ist die Evidenz zu Alkohol konsistenter und methodisch stärker abgesichert als zu Cannabis —
+      das ist jedoch nicht gleichbedeutend mit einem direkten Beleg, dass Alkohol die Schlafarchitektur insgesamt
+      stärker schädigt. Ein kontrollierter Kopf-an-Kopf-Vergleich beider Substanzen existiert nicht; sein Fehlen
+      wird hier als eigenständiges Ergebnis behandelt, nicht überspielt.
+    </p>
+
+    <p class="mt-6 text-sm text-parchment/70 leading-relaxed text-left sm:text-center border-t border-parchment/10 pt-5">
+      Diese Seite nähert sich der Frage aus drei Blickwinkeln: <strong class="text-parchment">pharmakologisch-neurobiologisch</strong>
+      (Abschnitte 2–3), <strong class="text-parchment">epistemisch-methodisch</strong> (Abschnitte 1, 6–7) und
+      <strong class="text-parchment">pragmatisch-gesundheitlich</strong> (Abschnitte 8–9). Das ist eine Denkstruktur,
+      keine empirische Validierungsmethode: Die drei Ebenen bestätigen sich nicht automatisch gegenseitig, nur
+      weil sie nebeneinanderstehen.
+    </p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <button type="button" data-modal-target="dialog-aenderungsprotokoll"
+        class="glass rounded-full px-4 py-2 text-sm text-parchment hover:border-gold/50 hover:text-gold transition-colors">
+        Änderungsprotokoll&nbsp;V1→V2
+      </button>
+      <button type="button" data-modal-target="dialog-exoskelett"
+        class="glass rounded-full px-4 py-2 text-sm text-parchment hover:border-gold/50 hover:text-gold transition-colors">
+        Epistemisches Exoskelett
+      </button>
+      <button type="button" data-modal-target="dialog-referenzen"
+        class="glass rounded-full px-4 py-2 text-sm text-parchment hover:border-gold/50 hover:text-gold transition-colors">
+        Alle Quellen
+      </button>
+    </div>
+  </div>
+</header>
+<nav aria-label="Hauptnavigation" class="sticky top-0 z-30 glass border-x-0 border-t-0">
+  <div class="max-w-4xl mx-auto px-3">
+    <ul class="flex gap-5 overflow-x-auto py-3 text-sm text-parchment/70" style="scrollbar-width:thin;">
+      <li><a class="navlink hover:text-gold" href="#methodik">1 · Methodik</a></li>
+      <li><a class="navlink hover:text-gold" href="#cannabis">2 · Cannabis</a></li>
+      <li><a class="navlink hover:text-gold" href="#alkohol">3 · Alkohol</a></li>
+      <li><a class="navlink hover:text-gold" href="#vergleich">4 · Vergleich</a></li>
+      <li><a class="navlink hover:text-gold" href="#kontext">5 · Kontext</a></li>
+      <li><a class="navlink hover:text-gold" href="#stresstest">6 · Stresstest</a></li>
+      <li><a class="navlink hover:text-gold" href="#falsifikation">7 · Falsifikation</a></li>
+      <li><a class="navlink hover:text-gold" href="#einordnung">8 · Einordnung</a></li>
+      <li><a class="navlink hover:text-gold" href="#fazit">9 · Fazit</a></li>
+      <li><a class="navlink hover:text-gold" href="#referenzen">10 · Referenzen</a></li>
+    </ul>
+  </div>
+</nav>
+<main id="content" class="max-w-3xl mx-auto px-5 py-10 md:py-16 space-y-10 md:space-y-14">
+
+<section id="methodik" class="card glass rounded-2xl p-6 md:p-10">
+  <h2 class="font-display text-2xl md:text-3xl text-parchment mb-6">1 · Epistemischer Rahmen &amp; Methodik</h2>
+
+  <h3 class="font-display text-lg text-gold mb-3">Evidenzklassen</h3>
+  <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-8 text-sm text-parchment/85">
+    <li class="flex gap-2 items-start"><span class="tag tag--fakt mt-0.5">Fakt</span> <span>direkt belegt</span></li>
+    <li class="flex gap-2 items-start"><span class="tag tag--schaetzung mt-0.5">Schätzung</span> <span>statistisch abgeleitete Daten</span></li>
+    <li class="flex gap-2 items-start"><span class="tag tag--ableitung mt-0.5">Ableitung</span> <span>mathematisch/logisch aus Fakten hergeleitet</span></li>
+    <li class="flex gap-2 items-start"><span class="tag tag--modell mt-0.5">Modell</span> <span>Ergebnis eines Mechanismus- oder Formalmodells</span></li>
+    <li class="flex gap-2 items-start"><span class="tag tag--projektion mt-0.5">Projektion</span> <span>kontrafaktisches Zukunftsszenario</span></li>
+    <li class="flex gap-2 items-start"><span class="tag tag--umstritten mt-0.5">Umstritten</span> <span>echter Fachstreit, Gegenposition belegt</span></li>
+    <li class="flex gap-2 items-start"><span class="tag tag--wertung mt-0.5">Wertung</span> <span>normative Aussage</span></li>
+    <li class="flex gap-2 items-start"><span class="tag tag--unbestaetigt mt-0.5">Unbestätigt</span> <span>Quelle trotz Recherche nicht auffindbar/einsehbar</span></li>
+  </ul>
+
+  <div class="callout callout--hint mb-8">
+    <span class="callout-label text-gold">Leitprinzip dieser Überarbeitung</span>
+    <p class="text-parchment/90"><em>Evidenzqualität und Effektgröße sind zwei verschiedene Achsen.</em> Dass ein
+    Effekt für Alkohol besser dokumentiert ist als für Cannabis, ist eine Aussage über den Forschungsstand — nicht
+    automatisch eine Aussage darüber, welche Substanz stärker wirkt. Dieses Prinzip wird an jeder Stelle wiederholt,
+    an der beide Substanzen mit unterschiedlicher Evidenzstärke auftreten, statt es nur einmal zu erwähnen und dann
+    implizit vorauszusetzen.</p>
+  </div>
+
+  <h3 class="font-display text-lg text-gold mb-3">Zentrale methodische Spannung</h3>
+  <p class="text-parchment/85 leading-relaxed mb-8">
+    Schlafforschung misst objektiv (Polysomnographie/PSG, EEG) und subjektiv (Fragebogen, Tagebuch, Ecological
+    Momentary Assessment). Beide Ebenen fallen bei beiden Substanzen teils auseinander und werden hier bewusst
+    getrennt gehalten, nicht zu einer Aussage verschmolzen.
+  </p>
+
+  <h3 class="font-display text-lg text-gold mb-3">Tool-Audit</h3>
+  <div class="glass rounded-xl p-4 md:p-5 mono text-xs md:text-[13px] leading-relaxed text-parchment/80">
+    10 Websuchen: THC-Schlafspindeln · THC-REM-Mechanismus · Alkohol-Schlafarchitektur · Alkohol-Glymphatik ·
+    Cannabis-Glymphatik · Nutt et al. 2010 · Cannabis-Entzug · Alkohol-Entzug · Matthew-Walker-Kritik
+    (Adversarial-Check) · Melatonin/Zirkadianik direkt verglichen.
+  </div>
+  <p class="text-parchment/70 text-sm leading-relaxed mt-3">
+    Eine Quelle (Suraev et al. 2026, PMC) war per reCAPTCHA nicht direkt abrufbar; Angaben daraus stammen aus dem
+    Such-Snippet, nicht aus dem Volltext, und sind entsprechend als Pilotstudie mit kleiner Stichprobe (n=20)
+    gekennzeichnet.
+  </p>
+</section>
+<section id="cannabis" class="card glass rounded-2xl p-6 md:p-10">
+  <h2 class="font-display text-2xl md:text-3xl text-parchment mb-6">2 · Cannabis (THC) und Schlafarchitektur</h2>
+
+  <h3 class="font-display text-lg text-gold mb-2">2.1 Sedierung ≠ Schlaf — unabhängig von Autorität begründet</h3>
+  <p class="text-parchment/85 leading-relaxed mb-3">
+    Die Unterscheidung zwischen pharmakologischer Sedierung und physiologischem Schlaf ist in der Schlafmedizin
+    etabliert.
+  </p>
+  <div class="callout callout--hint mb-6">
+    <span class="callout-label text-gold">Quellenkritik vorab</span>
+    <p class="text-parchment/90">Der Ausgangstext berief sich auf Matthew Walker (UC Berkeley). Dessen Buch
+    <em>Why We Sleep</em> wurde 2019 von Alexey Guzey wegen zahlreicher Fehler und mindestens eines Falls möglicher
+    Datenmanipulation an einer Grafik kritisiert, was auch der Statistiker Andrew Gelman (Columbia) aufgriff
+    <span class="tag tag--fakt">Fakt</span><span class="tag-note">zur Kritik</span>. Die
+    Sedierung-vs-Schlaf-Unterscheidung wird deshalb hier direkt aus Primärstudien begründet, nicht aus Walkers
+    Autorität abgeleitet.</p>
+  </div>
+
+  <h3 class="font-display text-lg text-gold mb-2">2.2 Sleep Spindles: korrelativ, nicht kausal etabliert</h3>
+  <p class="text-parchment/85 leading-relaxed mb-2">
+    Ein Review zu Cannabis und Gedächtnis (Schoeler et al. 2024, <em>Am J Drug Alcohol Abuse</em>) formuliert im
+    Original konjunktivisch: reduzierte hippocampale Glutamat-Aktivität durch THC „may also lead to" einer
+    verringerten Effizienz schneller Schlafspindeln (13–15 Hz). Dieselbe Quelle nennt die Gesamtbefundlage zu
+    Cannabis und Schlaf explizit gemischt und ungeklärt <span class="tag tag--fakt">Fakt</span><span class="tag-note">zur Aussage der Quelle</span>.
+  </p>
+  <p class="text-parchment/85 leading-relaxed mb-6">
+    Eingeordnet: <span class="tag tag--ableitung">Ableitung</span>, nicht <span class="tag tag--fakt">Fakt</span> —
+    <em>und ausdrücklich: das macht den möglichen Effekt nicht kleiner, sondern nur schlechter belegt.</em>
+  </p>
+
+  <h3 class="font-display text-lg text-gold mb-2">2.3 REM-Schlaf: zwei konkurrierende Mechanismus-Modelle, keine geschlossene Kette</h3>
+  <p class="text-parchment/85 leading-relaxed mb-3">
+    Der Ausgangstext behauptete eine durchgehende Linie: CB1-Bindung → Blockade der Acetylcholin-Ausschüttung im
+    pedunkulopontinen/laterodorsalen Tegmentum (PPT/LDT) → REM-Ausfall. Dagegen:
+  </p>
+  <ul class="list-disc pl-5 space-y-2 text-parchment/85 leading-relaxed mb-4">
+    <li>Anandamid (körpereigener CB1-Agonist), direkt ins PPTg injiziert, <strong>erhöht</strong> bei Ratten NREM-
+    und REM-Schlaf (Murillo-Rodríguez et al. 2008) <span class="tag tag--fakt">Fakt</span><span class="tag-note">Tiermodell</span> —
+    das Gegenteil der behaupteten Wirkrichtung in derselben Hirnregion.</li>
+    <li>Ein neueres, humanrelevanteres Modell (Suraev et al. 2026, Pilot-RCT, n=20) verweist auf einen
+    Locus-coeruleus/Noradrenalin-Mechanismus statt auf direkte ACh-Blockade
+    <span class="tag tag--modell">Modell</span><span class="tag-note">Pilotstudie</span>.</li>
+    <li>Eine referierte Meta-Analyse der PSG-Literatur fand „no consistent overall changes in sleep architecture
+    following cannabis use", mit Ausnahme einzelner Hinweise auf REM-Suppression bei hohen akuten Dosen
+    <span class="tag tag--fakt">Fakt</span><span class="tag-note">zur Aussage der Meta-Analyse</span>.</li>
+  </ul>
+  <div class="callout callout--chain mb-6">
+    <span class="callout-label" style="color:#6fd6c9">Kettenregel-Einordnung</span>
+    <p class="text-parchment/90">CB1-Rezeptoren auf präsynaptischen Axon-Terminalen sind <span class="tag tag--fakt">Fakt</span>.
+    Dass diese Modulation beim Menschen zuverlässig REM-Schlaf unterdrückt, ist eine zusätzliche, nicht separat am
+    Menschen bewiesene Ableitung — für die es im Tiermodell sogar gegenläufige Befunde gibt. Robust bleibt nur: bei
+    hohen akuten Dosen wurde REM-Suppression beobachtet <span class="tag tag--fakt">Fakt</span>; der Mechanismus
+    dahinter ist <span class="tag tag--modell">Modell</span>. <em>Auch hier gilt: uneinheitlich belegt heißt nicht
+    schwach wirksam — es heißt, dass die Studienlage selbst uneinheitlich ist.</em></p>
+  </div>
+
+  <h3 class="font-display text-lg text-gold mb-2">2.4 Chronischer Konsum: eine große, aber konfundierte Kohorte</h3>
+  <p class="text-parchment/85 leading-relaxed mb-6">
+    Die größte verfügbare Kohorte (<em>SLEEP</em>, Oxford Academic 2026, n=1449, davon 151 chronische
+    Täglich-Konsumenten) fand gegenüber Nie-Nutzern: WASO +21&nbsp;% (95%-CI 6,7–37,2&nbsp;%), Schlafeffizienz
+    −3,8&nbsp;% (CI −6,6 bis +1,0&nbsp;%, statistisch grenzwertig), N1-Anteil +2,8 Prozentpunkte (CI 0,3–5,6)
+    <span class="tag tag--fakt">Fakt</span><span class="tag-note">mit Konfidenzintervallen</span>. Die Autoren
+    selbst benennen die zentrale Einschränkung: die Stichprobe bestand überwiegend aus Patienten mit
+    mittelschwerer bis schwerer Schlafapnoe, die überhaupt erst wegen Schlafproblemen in eine Klinik überwiesen
+    wurden <span class="tag tag--fakt">Fakt</span><span class="tag-note">zur Limitation</span>. Eine kleinere
+    kontrollierte Studie an jungen Erwachsenen fand dagegen <strong>keine signifikanten Unterschiede</strong>
+    zwischen chronischen Nutzern und Kontrollen <span class="tag tag--fakt">Fakt</span><span class="tag-note">Gegenbefund</span>.
+  </p>
+
+  <h3 class="font-display text-lg text-gold mb-2">2.5 Glymphatisches System: STOP-Regel</h3>
+  <div class="callout callout--stop mb-6">
+    <span class="callout-label" style="color:#f1887e">STOP-Regel greift</span>
+    <p class="text-parchment/90">Keine auffindbare Studie misst glymphatische Funktion beim Menschen unter
+    Cannabis-Einfluss. Die Verknüpfung „gestörte Delta-Wellen → schlechtere glymphatische Reinigung" bleibt
+    <span class="tag tag--unbestaetigt">Unbestätigt</span> — eine plausible, aber nicht belegte Extrapolation.</p>
+  </div>
+
+  <h3 class="font-display text-lg text-gold mb-2">2.6 Zirkadianik und Melatonin: dünne Datenlage</h3>
+  <p class="text-parchment/85 leading-relaxed mb-6">
+    Eine Humanstudie von 1986 (Lissoni et al.) trägt exakt den passenden Titel — der Volltext war nicht einsehbar,
+    die Effektgröße bleibt <span class="tag tag--unbestaetigt">Unbestätigt</span>. SCN-Grundlagenforschung an
+    Mäusen zeigt CB1-Rezeptoren im „Master-Uhr"-Kern; Cannabinoide veränderten dort nicht den freilaufenden
+    Rhythmus, dämpften aber die Anpassung an Lichtreize (Acuna-Goycolea et al. 2010)
+    <span class="tag tag--fakt">Fakt</span><span class="tag-note">Tiermodell</span>. <em>Wichtig: „Unbestätigt"
+    heißt hier „nicht im Volltext geprüft", nicht „widerlegt".</em>
+  </p>
+
+  <h3 class="font-display text-lg text-gold mb-2">2.7 Entzug: der am robustesten belegte Cannabis-Effekt</h3>
+  <p class="text-parchment/85 leading-relaxed">
+    Gestörter Schlaf ist das am längsten anhaltende Cannabis-Entzugssymptom: 67–73&nbsp;% der Konsumenten während
+    eines Aufhörversuchs betroffen, Dauer bis zu 45 Tage (Babson et al. 2017) <span class="tag tag--fakt">Fakt</span>.
+    Objektiv per PSG bestätigt (Bolla et al. 2010): reduzierte Gesamtschlafzeit, Effizienz, REM-Anteil, erhöhte
+    Wachzeit und Latenz <span class="tag tag--fakt">Fakt</span>.
+  </p>
+</section>
+<section id="alkohol" class="card glass rounded-2xl p-6 md:p-10">
+  <h2 class="font-display text-2xl md:text-3xl text-parchment mb-6">3 · Alkohol und Schlafarchitektur</h2>
+
+  <h3 class="font-display text-lg text-gold mb-2">3.1 Akutphase</h3>
+  <p class="text-parchment/85 leading-relaxed mb-6">
+    Alkohol erhöht in der ersten Nachthälfte den Tiefschlafanteil und unterdrückt REM; mit sinkendem
+    Blutalkoholspiegel folgt in der zweiten Nachthälfte REM-Rebound und Fragmentierung — mehrfach repliziert
+    <span class="tag tag--fakt">Fakt</span>. Sigma-Power (PSG-Korrelat von Schlafspindeln) ist direkt reduziert
+    nachgewiesen <span class="tag tag--fakt">Fakt</span> — hier liegt tatsächlich eine direktere Messung vor als
+    bei Cannabis, wo der entsprechende Effekt nur <span class="tag tag--ableitung">Ableitung</span> ist.
+    <em>Das zeigt einen dokumentierten Unterschied in der Beweislage — es zeigt nicht automatisch, dass Cannabis
+    auf Schlafspindeln keinen vergleichbaren Effekt hätte.</em>
+  </p>
+
+  <h3 class="font-display text-lg text-gold mb-2">3.2 Toleranz</h3>
+  <p class="text-parchment/85 leading-relaxed mb-6">
+    Eine Drei-Nächte-Studie (<em>SLEEP</em>, Oxford Academic 2024) zeigte stärkste Effekte in Nacht 1, bereits
+    abnehmend in Nacht 2/3 — Toleranzbildung innerhalb weniger Tage <span class="tag tag--fakt">Fakt</span>. Die
+    Autoren weisen zudem auf einen möglichen „First-Night-Effect" als Teilerklärung hin — ein
+    Konfundierungshinweis, der in der Cannabis-Literatur seltener diskutiert wird.
+  </p>
+
+  <h3 class="font-display text-lg text-gold mb-2">3.3 Glymphatisches System: nur Tiermodell</h3>
+  <p class="text-parchment/85 leading-relaxed mb-3">
+    Eine Maus-Studie (Nedergaard-Labor, <em>Sci Rep</em> 2018) fand einen J-förmigen Zusammenhang: niedrige Dosen
+    steigerten glymphatische Funktion, hohe Dosen (Rauschtrinken-Niveau) unterdrückten sie
+    <span class="tag tag--fakt">Fakt</span><span class="tag-note">Tiermodell</span>.
+  </p>
+  <div class="callout callout--chain mb-6">
+    <span class="callout-label" style="color:#6fd6c9">Kettenregel-Warnung</span>
+    <p class="text-parchment/90">Dieser Befund stammt aus Mäusen und rechtfertigt keine „ein Glas Wein schützt das
+    Gehirn"-Aussage beim Menschen. Für Cannabis liegt nicht einmal eine vergleichbare Tierstudie vor — der
+    Vergleich ist auf beiden Seiten schwach fundiert, für Alkohol aber wenigstens dosis-differenziert untersucht.</p>
+  </div>
+
+  <h3 class="font-display text-lg text-gold mb-2">3.4 Melatonin: die stärkste Einzelevidenz in diesem Dokument</h3>
+  <p class="text-parchment/85 leading-relaxed mb-6">
+    Eine randomisierte, doppelblinde Crossover-RCT (Ekman et al. 1993, <em>J Clin Endocrinol Metab</em>) zeigte
+    dosisabhängige Suppression der nächtlichen Melatonin-Ausschüttung um 41&nbsp;% (Mitternacht), 33&nbsp;%
+    (01 Uhr), 18&nbsp;% (02 Uhr), bei gleichzeitigem Noradrenalin-Anstieg
+    <span class="tag tag--fakt">Fakt</span><span class="tag-note">RCT</span>. Das ist die methodisch stärkste
+    Einzelquelle im gesamten Dokument. <em>Diese methodische Überlegenheit gegenüber der nicht einsehbaren
+    Cannabis-Einzelstudie von 1986 ist eine Aussage über die Beweislage — nicht der Beweis, dass Cannabis keinen
+    oder einen kleineren Effekt auf Melatonin hat. Dazu fehlt schlicht eine vergleichbar saubere
+    Cannabis-Studie.</em>
+  </p>
+
+  <h3 class="font-display text-lg text-gold mb-2">3.5 Entzug</h3>
+  <p class="text-parchment/85 leading-relaxed mb-3">
+    Insomnie-Prävalenz im akuten Alkoholentzug: 57–92&nbsp;% in klinischen Stichproben, 32–50&nbsp;% in einer
+    bevölkerungsbasierten Erhebung (Brower &amp; Perron 2010, N=43.093)
+    <span class="tag tag--fakt">Fakt</span><span class="tag-note">breite Spanne je nach Stichprobe</span>. Bei der
+    Dauer liegt der deutlichste dokumentierte Unterschied zu Cannabis: Standardzeitraum 3–6 Monate, in
+    Einzeluntersuchungen zur Rückfallrisiko-Forschung bis zu 3 Jahre in der Recovery-Phase
+    <span class="tag tag--fakt">Fakt</span>.
+  </p>
+  <div class="callout callout--hint mb-6">
+    <span class="callout-label text-gold">Zur Einordnung dieser Zahlen — nach Zweitgutachten korrigiert</span>
+    <p class="text-parchment/90">Die 45-Tage-Angabe (Cannabis) und die 3–6-Monats- bzw. 3-Jahres-Angabe (Alkohol)
+    stammen aus unterschiedlichen Studienpopulationen mit teils unterschiedlichen Falldefinitionen („gestörter
+    Schlaf" vs. „Insomnie" vs. Recovery-Kohorten). Version 1 dieses Dokuments bildete daraus einen Multiplikator
+    („Faktor 2–24×") — das war handwerklich korrekt gerechnet, suggerierte aber eine Vergleichbarkeit der
+    Ausgangsdaten, die nicht besteht. Der Multiplikator entfällt hier bewusst; <strong>belastbar ist nur die
+    qualitative Aussage, dass die dokumentierte Alkohol-Entzugsinsomnie in den vorliegenden Studien deutlich
+    länger anhält als die dokumentierte Cannabis-Entzugsinsomnie.</strong></p>
+  </div>
+
+  <h3 class="font-display text-lg text-gold mb-2">3.6 Atemweg</h3>
+  <p class="text-parchment/85 leading-relaxed">
+    Alkohol relaxiert die obere Atemwegsmuskulatur und verstärkt Schnarchen/obstruktive Apnoe
+    <span class="tag tag--fakt">Fakt</span><span class="tag-note">etabliertes Grundlagenwissen</span>. Synthetische
+    Cannabinoide (Dronabinol/Nabilone) zeigten in vorläufigen Studien den gegenteiligen, günstigeren Effekt auf
+    serotonin-vermittelte Apnoen <span class="tag tag--fakt">Fakt</span><span class="tag-note">vorläufige Evidenz</span>
+    — eine der wenigen Dimensionen, in der Cannabis besser abschneidet.
+  </p>
+</section>
+<section id="vergleich" class="card glass rounded-2xl p-6 md:p-10">
+  <h2 class="font-display text-2xl md:text-3xl text-parchment mb-4">4 · Direkter Vergleich nach Endpunkt — nicht nach „Sieger"</h2>
+  <p class="text-parchment/85 leading-relaxed mb-6">
+    Die Spalte „Wer gewinnt?" aus Version 1 wurde entfernt: sie vermischte Effektgröße, Evidenzqualität und
+    Datenlücke in einem Werturteil. Stattdessen: getrennte Evidenzlage je Substanz, plus explizite Angabe, ob
+    überhaupt ein direkter Vergleich existiert.
+  </p>
+
+  <div class="table-wrap mb-6">
+    <table class="text-sm">
+      <thead>
+        <tr>
+          <th>Endpunkt</th>
+          <th>Cannabis — Evidenzlage</th>
+          <th>Alkohol — Evidenzlage</th>
+          <th>Direkter Vergleich?</th>
+        </tr>
+      </thead>
+      <tbody class="text-parchment/85">
+        <tr><td>Akute REM-Suppression</td><td>Uneinheitlich; Meta-Analyse findet keine konsistenten Veränderungen, Hinweise bei hohen Dosen</td><td>Konsistent repliziert, dosisabhängig</td><td>Nein</td></tr>
+        <tr><td>Sleep Spindles / Sigma-Power</td><td>Korrelativ, konjunktivisch formuliert <span class="tag tag--ableitung">Ableitung</span></td><td>Direkt gemessen <span class="tag tag--fakt">Fakt</span></td><td>Nein</td></tr>
+        <tr><td>Toleranzentwicklung</td><td>Schnell (Wochen)</td><td>Schnell (bereits nach 2–3 Nächten messbar)</td><td>Nein</td></tr>
+        <tr><td>Glymphatik</td><td>Keine Human- oder Tierstudie gefunden</td><td>Tierstudie, J-förmig dosisabhängig</td><td>Nein — nicht einmal Tiermodelle vergleichbar</td></tr>
+        <tr><td>Melatonin</td><td>1 nicht einsehbare Studie (1986)</td><td>RCT mit Dosis-Wirkungs-Kurve</td><td>Nein</td></tr>
+        <tr><td>Entzugsdauer</td><td>Bis 45 Tage <span class="tag tag--fakt">Fakt</span></td><td>3–6 Monate, Einzelfälle bis 3 Jahre <span class="tag tag--fakt">Fakt</span></td><td>Nein — unterschiedliche Studienpopulationen, kein Multiplikator gebildet</td></tr>
+        <tr><td>Subjektive Schlafqualität (EMA)</td><td>Teils besser bewertet als Alkohol-Tage</td><td>Konsistent nicht verbessert ggü. Nicht-Konsum</td><td>Ja — mehrere Studien vergleichen beide direkt auf subjektiver Ebene</td></tr>
+        <tr><td>Atemweg/Apnoe</td><td>Tendenziell neutral bis leicht günstig</td><td>Verschärft Schnarchen/Apnoe</td><td>Nein</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="text-parchment/85 leading-relaxed">
+    <strong class="text-parchment">Der einzige Endpunkt mit tatsächlichem Direktvergleich ist die subjektive
+    Schlafqualität</strong>, nicht die objektive Architektur. Eine 14-Tage-EMA-Studie bei gleichzeitigem
+    Alkohol-/Cannabiskonsum (PMC11974445) fand: Cannabis-Konsum war nicht unabhängig mit Schlafqualität assoziiert,
+    schwächte aber Alkohols negative Effekte ab, wenn beide zusammen konsumiert wurden. Eine bundesstaatlich
+    geförderte Studie bei Personen mit Angstsymptomen fand bessere subjektive Schlafqualität an Cannabis-Tagen,
+    während Alkohol allein keine Verbesserung zeigte. <em>Auch hier gilt die Trennungsregel aus Abschnitt 1:</em>
+    subjektiv besser bewerteter Schlaf ist nicht dasselbe wie objektiv intaktere Architektur — dasselbe Argument,
+    das gegen Cannabis-Optimismus spricht, muss hier symmetrisch angewendet werden.
+  </p>
+</section>
+<section id="kontext" class="card rounded-2xl p-6 md:p-10 border border-tagunbest/30 bg-nebula/40 backdrop-blur-md">
+  <h2 class="font-display text-2xl md:text-3xl text-parchment mb-1">5 · Kontext: Gesamtschadenspotenzial nach Nutt et al. 2010</h2>
+  <p class="mono text-xs text-tagunbest mb-6 tracking-wide">Ausdrücklich nicht schlafspezifisch</p>
+
+  <p class="text-parchment/85 leading-relaxed mb-6">
+    Die MCDA-Studie (Nutt, King &amp; Phillips, <em>The Lancet</em>, 2010) ist real, peer-reviewed und methodisch
+    transparent: ein Expertengremium bewertete 20 Drogen anhand von 16 Kriterien (9 nutzerbezogen, 7
+    gesellschaftsbezogen). Ergebnis: <span class="tag tag--fakt">Fakt</span><span class="tag-note">zur Studie und ihrem Ergebnis</span>
+  </p>
+
+  <div class="space-y-3 mb-6" role="img" aria-label="Gesamtschadens-Score nach Nutt et al. 2010: Alkohol 72 von 100 Punkten, Cannabis 20 von 100 Punkten">
+    <div>
+      <div class="flex justify-between text-sm text-parchment/80 mb-1"><span>Alkohol</span><span class="mono">72&nbsp;/&nbsp;100</span></div>
+      <div class="h-3 rounded-full bg-void/60 overflow-hidden"><div class="h-full rounded-full" style="width:72%; background:#f1887e;"></div></div>
+    </div>
+    <div>
+      <div class="flex justify-between text-sm text-parchment/80 mb-1"><span>Cannabis</span><span class="mono">20&nbsp;/&nbsp;100</span></div>
+      <div class="h-3 rounded-full bg-void/60 overflow-hidden"><div class="h-full rounded-full" style="width:20%; background:#6fd6c9;"></div></div>
+    </div>
+  </div>
+
+  <div class="callout callout--hint">
+    <span class="callout-label text-gold">Kategorienfehler vermeiden</span>
+    <p class="text-parchment/90">Diese Zahl beantwortet eine andere Frage als dieses Whitepaper. Sie misst
+    Gesamtschaden für Nutzer und Gesellschaft — Sucht, Kriminalität, körperliche Schäden, soziale Kosten —, nicht
+    spezifisch Schlafarchitektur. Version 1 dieses Dokuments führte den Score dennoch als eine von drei „robusten
+    Stützen" der Schlaf-These auf; das war, wie im Zweitgutachten zu Recht bemängelt, ein Kategorienfehler, der die
+    Argumentbasis künstlich verbreiterte. Der Score wird hier ausschließlich als allgemeiner Einordnungskontext
+    geführt und fließt <strong>nicht</strong> in die schlafspezifische Synthese in Abschnitt 9 ein. Zusätzlich: die
+    Kriteriengewichtung selbst ist ein Werturteil des Gremiums <span class="tag tag--wertung">Wertung</span>, kein
+    naturgegebener Messwert.</p>
+  </div>
+</section>
+<section id="stresstest" class="card glass rounded-2xl p-6 md:p-10">
+  <h2 class="font-display text-2xl md:text-3xl text-parchment mb-6">6 · Dialektischer Stresstest: These vs. Antithese</h2>
+
+  <div class="rounded-xl border border-gold/30 bg-gold/5 p-4 mb-5">
+    <p class="mono text-xs text-gold mb-1">These</p>
+    <p class="text-parchment/90">Alkohol schädigt den Schlaf mehr als Cannabis.</p>
+  </div>
+
+  <div class="space-y-4">
+    <div class="rounded-xl border border-tagumstritten/30 bg-tagumstritten/5 p-4">
+      <p class="mono text-xs mb-1" style="color:#f1887e">Antithese 1 — Konfundierung</p>
+      <p class="text-parchment/85 leading-relaxed">Die größte Cannabis-Kohorte (n=1449) besteht überwiegend aus
+      Schlafapnoe-Patienten; Selektionsbias und umgekehrte Kausalität (Selbstmedikation bei bestehenden
+      Schlafproblemen) sind von den Autoren selbst benannt.</p>
+    </div>
+    <div class="rounded-xl border border-tagumstritten/30 bg-tagumstritten/5 p-4">
+      <p class="mono text-xs mb-1" style="color:#f1887e">Antithese 2 — Nullbefunde</p>
+      <p class="text-parchment/85 leading-relaxed">Eine kontrollierte Studie an jungen Erwachsenen fand keine
+      signifikanten Unterschiede zwischen chronischen Cannabis-Nutzern und Kontrollen. Eine Meta-Analyse der
+      PSG-Literatur insgesamt fand keine konsistenten architektonischen Veränderungen durch Cannabis.</p>
+    </div>
+    <div class="rounded-xl border border-tagumstritten/30 bg-tagumstritten/5 p-4">
+      <p class="mono text-xs mb-1" style="color:#f1887e">Antithese 3 — Subjektive Gegenevidenz</p>
+      <p class="text-parchment/85 leading-relaxed">Mehrere unabhängige EMA-Studien finden konsistent, dass Alkohol
+      subjektive Schlafqualität nicht verbessert, während Cannabis in denselben Studien teils positiv assoziiert
+      ist.</p>
+    </div>
+  </div>
+
+  <div class="callout callout--hint mt-6">
+    <span class="callout-label text-gold">Was nach Abzug der Kategorienfehler übrig bleibt</span>
+    <p class="text-parchment/90">Drei Endpunkte mit tatsächlich asymmetrischer, zugunsten von
+    Alkohol-Dokumentation sprechender Evidenzqualität — Melatonin (RCT vs. unbestätigte Einzelstudie),
+    Sigma-Power/Spindeln (direkt gemessen vs. korrelativ) und Entzugsdauer (länger dokumentiert, wenn auch nicht
+    direkt mit Cannabis quantitativ vergleichbar). Der Gesamtschadens-Score gehört <strong>nicht</strong> mehr zu
+    dieser Liste (s. Abschnitt 5). Kein Endpunkt beruht auf einem direkten Kopf-an-Kopf-Test beider Substanzen
+    unter denselben Bedingungen.</p>
+  </div>
+</section>
+<section id="falsifikation" class="card glass rounded-2xl p-6 md:p-10">
+  <h2 class="font-display text-2xl md:text-3xl text-parchment mb-6">7 · Falsifikationskriterien &amp; offene Datenlücken</h2>
+
+  <p class="text-parchment/85 leading-relaxed mb-3">
+    <strong class="text-parchment">Was würde die verbleibende, engere These falsifizieren?</strong> Eine
+    randomisiert-kontrollierte Cross-Over-PSG-Studie, die beide Substanzen bei vergleichbarer psychoaktiver Dosis
+    direkt vergleicht und für Cannabis eine mindestens ebenso konsistente REM-/Spindel-/Melatonin-Beeinträchtigung
+    zeigt wie für Alkohol.
+  </p>
+  <div class="rounded-xl border border-gold/40 bg-gold/5 p-4 mb-6">
+    <p class="text-parchment font-medium">Diese Studie existiert nicht — ihr Fehlen ist nach dem Zweitgutachten die
+    zentrale Erkenntnis dieses Whitepapers, nicht eine Fußnote.</p>
+  </div>
+
+  <div class="callout callout--stop mb-6">
+    <span class="callout-label" style="color:#f1887e">Keine erfundenen Schwellenwerte</span>
+    <p class="text-parchment/90">Es existiert keine empirisch abgesicherte „sichere" Dosis für Schlafarchitektur,
+    weder für Cannabis noch für Alkohol. Konkrete Mikrogramm-/Stunden-Angaben aus dem ursprünglichen Ausgangstext
+    (unter 2–5&nbsp;mg THC, 2–3 Stunden Abstand) stammen aus einer nicht-akademischen Quelle ohne zugehörige
+    Dosis-Eskalationsstudie und werden hier nicht übernommen.</p>
+  </div>
+
+  <h3 class="font-display text-lg text-gold mb-2">Offene Lücken</h3>
+  <ul class="list-disc pl-5 space-y-1.5 text-parchment/85 leading-relaxed">
+    <li>Keine Human-Glymphatik-Studie für Cannabis</li>
+    <li>Keine im Volltext geprüfte Human-Melatonin-Studie für Cannabis</li>
+    <li>Kein direkter Kopf-an-Kopf-Vergleich unter kontrollierten PSG-Bedingungen</li>
+    <li>Individuelle Moderatoren (FAAH-Genotyp, Geschlecht, Alter) für beide Substanzen dokumentiert, aber nicht gegeneinander quantifiziert</li>
+  </ul>
+</section>
+<section id="einordnung" class="card glass rounded-2xl p-6 md:p-10">
+  <h2 class="font-display text-2xl md:text-3xl text-parchment mb-6">8 · Pragmatische Einordnung (klassifiziert)</h2>
+
+  <ul class="space-y-4 mb-6">
+    <li class="rounded-xl border border-gold/25 p-4">
+      <span class="tag tag--fakt mb-2">Evidenzgestützt</span>
+      <p class="text-parchment/85 leading-relaxed mt-2">Beide Substanzen erzeugen akut ein von natürlichem Schlaf
+      abweichendes Muster; für Alkohol konsistenter belegt als für Cannabis.</p>
+    </li>
+    <li class="rounded-xl border border-gold/25 p-4">
+      <span class="tag tag--fakt mb-2">Evidenzgestützt</span>
+      <p class="text-parchment/85 leading-relaxed mt-2">Abruptes Absetzen nach regelmäßigem Konsum stört bei beiden
+      den Schlaf; die dokumentierte Dauer ist bei Alkohol länger.</p>
+    </li>
+    <li class="rounded-xl border border-tagmodell/25 p-4">
+      <span class="tag tag--modell mb-2">Modellabhängig</span>
+      <p class="text-parchment/85 leading-relaxed mt-2">Aussagen zur glymphatischen Reinigung beruhen für beide
+      Substanzen ausschließlich oder überwiegend auf Tiermodellen.</p>
+    </li>
+    <li class="rounded-xl border border-tagableitung/25 p-4">
+      <span class="tag tag--ableitung mb-2">Fachurteil</span>
+      <p class="text-parchment/85 leading-relaxed mt-2">Schlafmedizinische Literatur rät von beiden Substanzen als
+      Dauerlösung ab und empfiehlt bei anhaltenden Schlafproblemen Ursachenabklärung statt Selbstmedikation.</p>
+    </li>
+    <li class="rounded-xl border border-tagwertung/25 p-4">
+      <span class="tag tag--wertung mb-2">Normative Entscheidung</span>
+      <p class="text-parchment/85 leading-relaxed mt-2">Ob und wie jemand den eigenen Konsum ändert, ist eine
+      persönliche Abwägung — keine zwingende Folge der Daten.</p>
+    </li>
+  </ul>
+
+  <div class="callout callout--hint">
+    <span class="callout-label text-gold">Zu „risikoärmerem" Konsum</span>
+    <p class="text-parchment/90">Dosis und zeitlicher Abstand zur Schlafenszeit werden in der Literatur als
+    relevante Einflussgrößen beschrieben, ohne dass sich daraus eine belastbare konkrete Zahl ableiten ließe. Für
+    individuelle Reduktion oder Umstellung ist eine ärztliche oder Suchtberatungsstelle die geeignetere
+    Anlaufstelle als eine pauschale Faustregel.</p>
+  </div>
+</section>
+<section id="fazit" class="card rounded-2xl p-6 md:p-10 border border-gold/35 bg-gradient-to-b from-gold/10 to-transparent">
+  <h2 class="font-display text-2xl md:text-3xl text-parchment mb-6">9 · Gesamtfazit</h2>
+  <p class="text-parchment/90 leading-relaxed text-[1.05rem]">
+    Für mehrere schlafbezogene Endpunkte — akute REM-Suppression, Sigma-Power/Schlafspindel-Reduktion,
+    Melatonin-Suppression und Dauer der Entzugs-Insomnie — liegt zu Alkohol konsistentere, teils RCT-gestützte
+    Evidenz vor als zu Cannabis, wo die Befundlage über mehrere Studien hinweg uneinheitlich bleibt.
+    <strong class="text-gold">Das ist etwas anderes als ein direkter Beleg, dass Alkohol die Schlafarchitektur
+    insgesamt stärker schädigt:</strong> eine kontrollierte Kopf-an-Kopf-Studie unter vergleichbaren Bedingungen
+    existiert nicht, und schwächer belegt ist nicht gleichbedeutend mit schwächer wirksam. Was sich tragen lässt,
+    ist die engere, aber belastbarere Aussage: Die dokumentierten Schäden an der Schlafarchitektur sind für Alkohol
+    besser abgesichert und in mehreren Fällen länger anhaltend — nicht, dass sie nachweislich größer sind. Der
+    Gesamtschadens-Score von Nutt et al. (72 vs. 20) ist dabei ein Kontext-, kein Schlaf-Argument.
+  </p>
+</section>
+<section id="referenzen" class="card glass rounded-2xl p-6 md:p-10">
+  <h2 class="font-display text-2xl md:text-3xl text-parchment mb-6">10 · Referenzen &amp; Claim-Ledger</h2>
+
+  <p class="text-parchment/85 leading-relaxed mb-4">
+    Vollständige, kategorisierte Quellenliste (Cannabis, Alkohol, Direktvergleich &amp; Kontext,
+    Adversarial-Quellenkritik) mit anklickbaren Links:
+  </p>
+  <button type="button" data-modal-target="dialog-referenzen"
+    class="glass rounded-full px-5 py-2.5 text-sm text-parchment hover:border-gold/50 hover:text-gold transition-colors mb-8">
+    Alle Quellen öffnen →
+  </button>
+
+  <h3 class="font-display text-lg text-gold mb-3">Claim-Ledger (kompakt)</h3>
+  <div class="table-wrap">
+    <table class="text-sm">
+      <thead>
+        <tr><th>ID</th><th>Behauptung</th><th>Quelle</th><th>Endstatus</th></tr>
+      </thead>
+      <tbody class="text-parchment/85">
+        <tr><td class="mono">C1</td><td>THC reduziert Schlafspindel-Effizienz</td><td>Schoeler et al. 2024</td><td><span class="tag tag--ableitung">Ableitung</span></td></tr>
+        <tr><td class="mono">C2</td><td>THC blockiert ACh im PPT/LDT → REM-Ausfall (durchgehende Kette)</td><td>Ausgangstext</td><td><span class="tag tag--modell">Modell</span> / <span class="tag tag--umstritten">Umstritten</span> <span class="tag-note">Tiermodell zeigt teils Gegenteil</span></td></tr>
+        <tr><td class="mono">C3</td><td>Cannabis stört glymphatische Reinigung</td><td>Ausgangstext</td><td><span class="tag tag--unbestaetigt">Unbestätigt</span></td></tr>
+        <tr><td class="mono">C4</td><td>Alkohol unterdrückt REM in 1. Nachthälfte, Rebound in 2.</td><td>Mehrere PSG-Studien</td><td><span class="tag tag--fakt">Fakt</span></td></tr>
+        <tr><td class="mono">C5</td><td>Alkohol unterdrückt Melatonin dosisabhängig</td><td>Ekman et al. 1993</td><td><span class="tag tag--fakt">Fakt</span></td></tr>
+        <tr><td class="mono">C6</td><td>Alkohol schadet dem Schlaf insgesamt mehr als Cannabis</td><td>Nutzerthese</td><td><span class="verdict verdict--rejected">Nicht direkt getestet</span> <span class="tag-note">nur Synthese aus Teilbefunden, s. Abschnitt 9</span></td></tr>
+        <tr><td class="mono">C7</td><td>Cannabis-Entzug kürzer als Alkohol-Entzug</td><td>Babson 2017 / PMC7722668</td><td><span class="tag tag--fakt">Fakt</span> <span class="tag-note">zu den Einzelbefunden; kein Multiplikator gebildet</span></td></tr>
+        <tr><td class="mono">C8</td><td>Nutt-Score belegt stärkeren Schlafschaden durch Alkohol</td><td>Version 1 dieses Dokuments</td><td><span class="verdict verdict--rejected">Zurückgezogen</span> <span class="tag-note">Kategorienfehler</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-parchment/60 text-sm mt-4 italic">
+    Ende des Whitepapers. Die zentrale, im Zweitgutachten korrekt benannte Lücke — das Fehlen eines direkten
+    Kopf-an-Kopf-Vergleichs — wird hier als Ergebnis geführt, nicht als Fußnote versteckt.
+  </p>
+</section>
+</main>
+<footer class="border-t border-parchment/10 py-10 px-5">
+  <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-parchment/50">
+    <p>Projekt Sternenstaub · Die Stille Revolution</p>
+    <div class="flex gap-4">
+      <button type="button" data-modal-target="dialog-exoskelett" class="hover:text-gold transition-colors">Epistemisches Exoskelett</button>
+      <a href="#top" class="hover:text-gold transition-colors">Nach oben ↑</a>
+    </div>
+  </div>
+  <p class="max-w-3xl mx-auto mt-4 text-xs text-parchment/35 leading-relaxed">
+    Recherche, Synthese und Code dieser Seite entstanden mit KI-Unterstützung; inhaltliche Prüfung, Freigabe und
+    Verantwortung liegen beim menschlichen Autor. Details siehe Epistemisches Exoskelett.
+  </p>
+</footer>
+<dialog id="dialog-aenderungsprotokoll" aria-labelledby="aenderungsprotokoll-title">
+  <div class="dialog-panel">
+    <div class="flex items-start justify-between gap-4 mb-4">
+      <h2 id="aenderungsprotokoll-title" class="font-display text-xl text-parchment">Änderungsprotokoll — Reaktion auf externes Zweitgutachten</h2>
+      <button type="button" data-modal-close aria-label="Dialog schließen" class="text-parchment/60 hover:text-gold text-2xl leading-none px-1">&times;</button>
+    </div>
+    <p class="text-sm text-parchment/75 leading-relaxed mb-5">
+      Version 1 dieses Dokuments wurde von einem separaten KI-Modell geprüft (vom Nutzer veranlasst, Modell nicht
+      spezifiziert). Die Kritikpunkte wurden einzeln bewertet, nicht pauschal übernommen — dieselbe Praxis, die
+      bereits bei der Mediations-Serie dieses Projekts galt: ein Zweitgutachten ist ein Hinweis, keine Autorität.
+    </p>
+    <div class="space-y-4 text-sm">
+      <div class="border-b border-parchment/10 pb-4">
+        <p class="text-parchment/90 mb-2">Leitthese „Alkohol schädigt insgesamt stärker" wird nicht direkt
+        getestet, nur aus Teilbefunden synthetisiert</p>
+        <span class="verdict verdict--accepted mb-2">Akzeptiert</span>
+        <p class="text-parchment/70 mt-2">→ Schlussfolgerung durchgängig auf „konsistenter belegt" statt „stärker
+        wirksam" umformuliert (Abschnitt 9)</p>
+      </div>
+      <div class="border-b border-parchment/10 pb-4">
+        <p class="text-parchment/90 mb-2">Nutt-Score wird als eine von drei Stützen der Schlaf-These gezählt,
+        obwohl er explizit an anderer Stelle als „andere Frage" markiert wurde</p>
+        <span class="verdict verdict--accepted mb-2">Akzeptiert</span>
+        <p class="text-parchment/70 mt-2">→ Score jetzt ausschließlich in eigenem, klar als nicht-schlafspezifisch
+        gekennzeichnetem Kontextabschnitt (Abschnitt 5); fließt nicht mehr in die Schlaf-Synthese ein</p>
+      </div>
+      <div class="border-b border-parchment/10 pb-4">
+        <p class="text-parchment/90 mb-2">„Faktor 2–24×" bei Entzugsdauer suggeriert Präzision, die die
+        heterogenen Studienpopulationen/-definitionen nicht hergeben</p>
+        <span class="verdict verdict--accepted mb-2">Akzeptiert</span>
+        <p class="text-parchment/70 mt-2">→ Multiplikator entfernt, Rohbereiche mit Quellen bleiben stehen,
+        Inkommensurabilität wird benannt</p>
+      </div>
+      <div class="border-b border-parchment/10 pb-4">
+        <p class="text-parchment/90 mb-2">Tabellenspalte „Wer gewinnt?" vermischt Effektgröße, Evidenzqualität und
+        Datenlücke</p>
+        <span class="verdict verdict--accepted mb-2">Akzeptiert</span>
+        <p class="text-parchment/70 mt-2">→ Ersetzt durch getrennte Spalten je Substanz plus explizite Markierung,
+        ob ein direkter Vergleich existiert</p>
+      </div>
+      <div class="border-b border-parchment/10 pb-4">
+        <p class="text-parchment/90 mb-2">„Schwächer belegt ≠ geringerer Effekt" wurde nur an der REM-Stelle
+        explizit gemacht</p>
+        <span class="verdict verdict--partial mb-2">Teilweise akzeptiert</span>
+        <p class="text-parchment/70 mt-2">→ Grundsatz jetzt an jeder Stelle mit asymmetrischer Evidenzlage
+        wiederholt (Melatonin, Spindeln, REM)</p>
+      </div>
+      <div>
+        <p class="text-parchment/90 mb-2">Implizite Empfehlung, aus den Teilbefunden gar keine Gesamteinschätzung
+        mehr zu bilden</p>
+        <span class="verdict verdict--rejected mb-2">Nicht übernommen</span>
+        <p class="text-parchment/70 mt-2">→ Eine vorsichtig formulierte, die Lücke explizit benennende Synthese ist
+        informativer als ein vollständiger Verzicht darauf — Abschnitt 9 versucht diesen Mittelweg, nicht die
+        Vermeidung jeder Schlussfolgerung</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="dialog-exoskelett" aria-labelledby="exoskelett-title">
+  <div class="dialog-panel">
+    <div class="flex items-start justify-between gap-4 mb-4">
+      <h2 id="exoskelett-title" class="font-display text-xl text-parchment">Epistemisches Exoskelett</h2>
+      <button type="button" data-modal-close aria-label="Dialog schließen" class="text-parchment/60 hover:text-gold text-2xl leading-none px-1">&times;</button>
+    </div>
+
+    <h3 class="font-display text-base text-gold mb-2">KI-Beitrag &amp; menschliche Verifikation</h3>
+    <p class="text-sm text-parchment/80 leading-relaxed mb-2">
+      <strong class="text-parchment/95">Recherche &amp; Evidenzprüfung des Whitepapers (frühere Session):</strong>
+      10 gezielte Websuchen, Primärquellen-Verifikation, Adversarial-Suche nach Gegenevidenz, claim-weise
+      Evidenzklassifizierung (siehe Abschnitt 1 &amp; Claim-Ledger) — Tool-Audit dokumentiert.
+    </p>
+    <p class="text-sm text-parchment/80 leading-relaxed mb-2">
+      <strong class="text-parchment/95">Diese Seite (aktuelle Session):</strong> Übertragung des bereits
+      geprüften Fließtexts in die interaktive HTML/CSS/JS-Architektur, Aufbau des Evidenz-Tagging-Systems,
+      Umsetzung dieses Exoskeletts. Keine neuen inhaltlichen Recherchen für die Übertragung selbst.
+    </p>
+    <p class="text-sm text-parchment/80 leading-relaxed mb-6">
+      <strong class="text-parchment/95">Human Verified:</strong> Ein externes Zweitgutachten wurde eingeholt und
+      claim-für-claim bewertet statt pauschal übernommen (siehe Änderungsprotokoll); Entscheidung über Aufnahme
+      oder Ablehnung jedes Kritikpunkts liegt beim menschlichen Autor.
+    </p>
+
+    <h3 class="font-display text-base text-gold mb-2">Falsification Panel</h3>
+    <p class="text-sm text-parchment/80 leading-relaxed mb-2">
+      Eine randomisiert-kontrollierte Cross-Over-PSG-Studie, die Cannabis und Alkohol bei vergleichbarer
+      psychoaktiver Dosis direkt vergleicht und für Cannabis eine mindestens ebenso konsistente
+      REM-/Spindel-/Melatonin-Beeinträchtigung zeigt wie für Alkohol, würde die engere These dieses Whitepapers
+      falsifizieren. <strong class="text-parchment/95">Diese Studie existiert nicht.</strong>
+    </p>
+    <p class="text-sm text-parchment/80 leading-relaxed mb-6">
+      Keine empirisch abgesicherte Falsifikationsschwelle (z.&nbsp;B. eine „sichere" Dosis) wurde erfunden, um
+      Abschnitt 7 härter aussehen zu lassen — wo keine belastbare Schwelle existiert, steht das so da.
+    </p>
+
+    <h3 class="font-display text-base text-gold mb-2">Offene Fragen &amp; Annahmen</h3>
+    <ul class="list-disc pl-5 space-y-1.5 text-sm text-parchment/80 leading-relaxed">
+      <li>Keine Human-Glymphatik-Studie für Cannabis auffindbar</li>
+      <li>Keine im Volltext geprüfte Human-Melatonin-Studie für Cannabis (1986er Quelle nicht einsehbar)</li>
+      <li>Kein direkter Kopf-an-Kopf-Vergleich unter kontrollierten PSG-Bedingungen</li>
+      <li>Individuelle Moderatoren (FAAH-Genotyp, Geschlecht, Alter) dokumentiert, aber nicht gegeneinander quantifiziert</li>
+      <li>Eine von einem externen Zweitgutachten genannte Quelle (angebliche Porges-Gegenerwiderung, aus einem
+      anderen Projekt dieser Serie) wurde bewusst nicht ungeprüft übernommen — dieselbe Vorsicht gilt hier
+      grundsätzlich für alle Zweitgutachten-Hinweise, die selbst nicht verifiziert werden konnten</li>
+    </ul>
+  </div>
+</dialog>
+
+<dialog id="dialog-referenzen" aria-labelledby="referenzen-title">
+  <div class="dialog-panel">
+    <div class="flex items-start justify-between gap-4 mb-4">
+      <h2 id="referenzen-title" class="font-display text-xl text-parchment">Referenzen</h2>
+      <button type="button" data-modal-close aria-label="Dialog schließen" class="text-parchment/60 hover:text-gold text-2xl leading-none px-1">&times;</button>
+    </div>
+
+    <h3 class="font-display text-base text-gold mb-2">Cannabis</h3>
+    <ul class="list-disc pl-5 space-y-1.5 text-sm text-parchment/75 leading-relaxed mb-6 break-words">
+      <li>Schoeler et al. 2024, <em>Am J Drug Alcohol Abuse</em> — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://www.tandfonline.com/doi/full/10.1080/00952990.2024.2362832">tandfonline.com</a></li>
+      <li>Chronic cannabis use and sleep architecture (<em>SLEEP</em>, 2026) — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://academic.oup.com/sleep/advance-article/doi/10.1093/sleep/zsaf396/8382912">academic.oup.com</a> · <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13163167/">PMC13163167</a></li>
+      <li>Cannabis use proximal to sleep (JCSM) — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://jcsm.aasm.org/doi/full/10.5664/jcsm.11212">jcsm.aasm.org</a></li>
+      <li>What sleep physicians need to know (2026) — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://link.springer.com/article/10.1007/s44470-026-00095-7">link.springer.com</a></li>
+      <li>Cannabinoids, Endocannabinoids and Sleep (Frontiers 2020) — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://www.frontiersin.org/journals/molecular-neuroscience/articles/10.3389/fnmol.2020.00125/full">frontiersin.org</a></li>
+      <li>Murillo-Rodríguez 2008 — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://www.med.upenn.edu/cbti/assets/user-content/documents/The%20role%20of%20the%20CB1%20receptor%20in%20the%20regulation%20of%20sleep..pdf">med.upenn.edu</a></li>
+      <li>CB1-Agonist/Antagonist Ratten-Pilotstudie — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3581240/">PMC3581240</a></li>
+      <li>Suraev et al. 2026 — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12856102/">PMC12856102</a> <span class="tag-note">(Volltext nicht abrufbar, Snippet-basiert)</span></li>
+      <li>Babson, Sottile &amp; Morabito 2017 — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pubmed.ncbi.nlm.nih.gov/28349316/">pubmed.ncbi.nlm.nih.gov</a></li>
+      <li>Acuna-Goycolea et al. 2010 — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2927117">PMC2927117</a></li>
+      <li>Lissoni et al. 1986 — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://www.thieme-connect.com/products/ejournals/abstract/10.1055/s-2007-1012235">thieme-connect.com</a> <span class="tag-note">(Volltext nicht eingesehen)</span></li>
+      <li>Dyche/Trice, JMU — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://commons.lib.jmu.edu/masters202029/132">commons.lib.jmu.edu</a></li>
+    </ul>
+
+    <h3 class="font-display text-base text-gold mb-2">Alkohol</h3>
+    <ul class="list-disc pl-5 space-y-1.5 text-sm text-parchment/75 leading-relaxed mb-6 break-words">
+      <li>Alcohol, Wine, and Sleep (Narrative Review 2026) — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12942847/">PMC12942847</a></li>
+      <li>Presleep-Alkohol-Studie (<em>SLEEP</em> 2024) — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11009025/">PMC11009025</a></li>
+      <li>Feed-forward allostatic framework — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6879503/">PMC6879503</a></li>
+      <li>Frontiers Neuroscience 2022 — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2022.838486/full">frontiersin.org</a></li>
+      <li>Zhang/Nedergaard 2018 — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pubmed.ncbi.nlm.nih.gov/29396480/">pubmed.ncbi.nlm.nih.gov</a></li>
+      <li>Ekman et al. 1993 — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pubmed.ncbi.nlm.nih.gov/8370699/">pubmed.ncbi.nlm.nih.gov</a></li>
+      <li>Persistenz nach Alkoholentzug — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7722668">PMC7722668</a></li>
+      <li>Melatonin-Marker bei Alkoholabhängigkeit — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4258345">PMC4258345</a></li>
+    </ul>
+
+    <h3 class="font-display text-base text-gold mb-2">Direktvergleich &amp; Kontext</h3>
+    <ul class="list-disc pl-5 space-y-1.5 text-sm text-parchment/75 leading-relaxed mb-6 break-words">
+      <li>Nutt, King &amp; Phillips 2010, <em>The Lancet</em> — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://www.gwern.net/doc/statistics/decision/2010-nutt.pdf">gwern.net</a></li>
+      <li>Ko-Konsum-EMA-Studie — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11974445">PMC11974445</a></li>
+      <li>Jugend-Kohorte Spanien — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://www.recoveryanswers.org/research-post/teen-use-alcohol-and-cannabis-sleep-helpful-harmful/">recoveryanswers.org</a></li>
+      <li>Angst-Kohorte, Drug and Alcohol Review — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://necann.com/?p=51414">necann.com</a></li>
+    </ul>
+
+    <h3 class="font-display text-base text-gold mb-2">Adversarial-Quellenkritik</h3>
+    <ul class="list-disc pl-5 space-y-1.5 text-sm text-parchment/75 leading-relaxed break-words">
+      <li>Guzey 2019 — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://guzey.com/books/why-we-sleep/">guzey.com</a></li>
+      <li>Wikipedia, Matthew Walker — <a class="text-tagmodell hover:underline" target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Matthew_Walker_(scientist)">en.wikipedia.org</a></li>
+    </ul>
+  </div>
+</dialog>
+<button type="button" id="autoscroll-toggle" aria-pressed="false"
+  class="glass rounded-full pl-3 pr-4 py-2.5 flex items-center gap-2 text-sm text-parchment/85 hover:border-gold/50 hover:text-gold shadow-lg shadow-black/30">
+  <span id="autoscroll-icon" aria-hidden="true">▶</span>
+  <span id="autoscroll-label">Automatisch scrollen</span>
+</button>
+<script>
+(function(){
+  'use strict';
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var statusEl = document.getElementById('a11y-status');
+  function announce(msg){ if (statusEl) statusEl.textContent = msg; }
+
+  /* ---------------------------------------------------------------
+   * 1) Partikel-Canvas: magnetisches 2D-Netzwerk
+   * ------------------------------------------------------------- */
+  (function particles(){
+    var canvas = document.getElementById('particle-canvas');
+    if (!canvas || !canvas.getContext) return;
+    var ctx = canvas.getContext('2d');
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = 0, h = 0;
+    var pointer = { x: -9999, y: -9999, active: false };
+    var particles = [];
+    var running = false;
+    var rafId = null;
+
+    var COLORS = ['217,163,92', '244,234,217', '111,214,201'];
+    var LINK_DIST = 120;
+    var MAGNET_RADIUS = 170;
+    var REPEL_RADIUS = 46;
+
+    function resize(){
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function makeParticles(){
+      var count = Math.min(90, Math.max(28, Math.floor((w * h) / 16000)));
+      particles = [];
+      for (var i = 0; i < count; i++){
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.18,
+          vy: (Math.random() - 0.5) * 0.18,
+          r: Math.random() * 1.4 + 0.6,
+          c: COLORS[i % COLORS.length]
+        });
+      }
+    }
+
+    function step(){
+      ctx.clearRect(0, 0, w, h);
+
+      for (var i = 0; i < particles.length; i++){
+        var p = particles[i];
+
+        if (pointer.active){
+          var dx = pointer.x - p.x, dy = pointer.y - p.y;
+          var dist = Math.sqrt(dx * dx + dy * dy) || 0.0001;
+          if (dist < MAGNET_RADIUS && dist > REPEL_RADIUS){
+            var pull = (1 - dist / MAGNET_RADIUS) * 0.045;
+            p.vx += (dx / dist) * pull;
+            p.vy += (dy / dist) * pull;
+          } else if (dist <= REPEL_RADIUS){
+            var push = (1 - dist / REPEL_RADIUS) * 0.09;
+            p.vx -= (dx / dist) * push;
+            p.vy -= (dy / dist) * push;
+          }
+        }
+
+        p.vx *= 0.965;
+        p.vy *= 0.965;
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < -20) p.x = w + 20;
+        if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20;
+        if (p.y > h + 20) p.y = -20;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + p.c + ',0.75)';
+        ctx.fill();
+      }
+
+      for (var a = 0; a < particles.length; a++){
+        for (var b = a + 1; b < particles.length; b++){
+          var pa = particles[a], pb = particles[b];
+          var ddx = pa.x - pb.x, ddy = pa.y - pb.y;
+          var d = Math.sqrt(ddx * ddx + ddy * ddy);
+          if (d < LINK_DIST){
+            ctx.beginPath();
+            ctx.moveTo(pa.x, pa.y);
+            ctx.lineTo(pb.x, pb.y);
+            ctx.strokeStyle = 'rgba(217,163,92,' + ((1 - d / LINK_DIST) * 0.16) + ')';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      if (running) rafId = requestAnimationFrame(step);
+    }
+
+    function start(){ if (!running){ running = true; rafId = requestAnimationFrame(step); } }
+    function stop(){ running = false; if (rafId) cancelAnimationFrame(rafId); }
+
+    resize();
+    makeParticles();
+
+    if (reduceMotion){
+      step(); // ein einziges statisches Bild, keine Schleife, keine Interaktivität
+    } else {
+      start();
+      window.addEventListener('mousemove', function(e){ pointer.x = e.clientX; pointer.y = e.clientY; pointer.active = true; }, { passive: true });
+      window.addEventListener('touchmove', function(e){
+        if (e.touches && e.touches[0]){ pointer.x = e.touches[0].clientX; pointer.y = e.touches[0].clientY; pointer.active = true; }
+      }, { passive: true });
+      window.addEventListener('mouseleave', function(){ pointer.active = false; });
+      document.addEventListener('visibilitychange', function(){
+        if (document.hidden) stop(); else start();
+      });
+    }
+
+    var resizeTimer;
+    window.addEventListener('resize', function(){
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function(){ resize(); makeParticles(); if (reduceMotion) step(); }, 150);
+    });
+  })();
+
+  /* ---------------------------------------------------------------
+   * 2) Aktive Sektion in der Navigation hervorheben
+   * ------------------------------------------------------------- */
+  (function navHighlight(){
+    var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+    var links = {};
+    document.querySelectorAll('.navlink').forEach(function(a){
+      links[a.getAttribute('href').slice(1)] = a;
+    });
+    if (!('IntersectionObserver' in window) || sections.length === 0) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var link = links[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(s){ io.observe(s); });
+  })();
+
+  /* ---------------------------------------------------------------
+   * 3) Modale (native <dialog>)
+   * ------------------------------------------------------------- */
+  (function modals(){
+    var lastTrigger = null;
+
+    document.querySelectorAll('[data-modal-target]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var dialog = document.getElementById(btn.getAttribute('data-modal-target'));
+        if (!dialog) return;
+        lastTrigger = btn;
+        if (typeof dialog.showModal === 'function') dialog.showModal();
+        else dialog.setAttribute('open', '');
+      });
+    });
+
+    document.querySelectorAll('dialog').forEach(function(dialog){
+      dialog.querySelectorAll('[data-modal-close]').forEach(function(closeBtn){
+        closeBtn.addEventListener('click', function(){ dialog.close(); });
+      });
+      dialog.addEventListener('click', function(e){
+        if (e.target === dialog) dialog.close();
+      });
+      dialog.addEventListener('close', function(){
+        if (lastTrigger) lastTrigger.focus();
+      });
+    });
+  })();
+
+  /* ---------------------------------------------------------------
+   * 4) Automatisches Scrollen — langsam, pausiert bei Interaktion
+   * ------------------------------------------------------------- */
+  (function autoScroll(){
+    var toggle = document.getElementById('autoscroll-toggle');
+    if (!toggle) return;
+
+    if (reduceMotion){
+      toggle.remove();
+      return;
+    }
+
+    var icon = document.getElementById('autoscroll-icon');
+    var label = document.getElementById('autoscroll-label');
+    var SPEED = 0.5;
+    var IDLE_RESUME_MS = 2800;
+
+    var enabled = false;
+    var paused = false;
+    var idleTimer = null;
+    var rafId = null;
+
+    function nearBottom(){
+      return (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 4);
+    }
+
+    function setUI(){
+      toggle.setAttribute('aria-pressed', enabled ? 'true' : 'false');
+      icon.textContent = enabled ? '⏸' : '▶';
+      label.textContent = enabled ? 'Automatisches Scrollen läuft' : 'Automatisch scrollen';
+    }
+
+    function loop(){
+      if (enabled && !paused){
+        if (nearBottom()){
+          enabled = false;
+          setUI();
+          announce('Ende der Seite erreicht. Automatisches Scrollen beendet.');
+          return;
+        }
+        window.scrollBy(0, SPEED);
+      }
+      rafId = requestAnimationFrame(loop);
+    }
+
+    function armIdleResume(){
+      clearTimeout(idleTimer);
+      if (!enabled) return;
+      idleTimer = setTimeout(function(){ paused = false; }, IDLE_RESUME_MS);
+    }
+
+    function onUserInteraction(){
+      if (!enabled) return;
+      paused = true;
+      armIdleResume();
+    }
+
+    ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(function(evt){
+      window.addEventListener(evt, onUserInteraction, { passive: true });
+    });
+
+    toggle.addEventListener('click', function(){
+      enabled = !enabled;
+      if (enabled){
+        paused = false;
+        clearTimeout(idleTimer);
+        announce('Automatisches Scrollen gestartet.');
+      } else {
+        announce('Automatisches Scrollen gestoppt.');
+      }
+      setUI();
+    });
+
+    setUI();
+    rafId = requestAnimationFrame(loop);
+  })();
+
+})();
+</script>
+</body>
+</html>
